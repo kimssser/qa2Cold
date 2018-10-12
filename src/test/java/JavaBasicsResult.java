@@ -10,6 +10,7 @@ public class JavaBasicsResult {
         sumAndPrint(405, 900);
     }
 
+
     private void sumAndPrint(Integer a, Integer b) {
         Integer c = a + b + b;
         System.out.println(text + "for int: " + c);
