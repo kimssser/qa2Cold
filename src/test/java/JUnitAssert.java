@@ -6,7 +6,7 @@ public class JUnitAssert {
     @Test
     public void evenNumberTest(){
         LoanExpenses a = new LoanExpenses();
-        assertTrue("amount to be returned is incorrect",a.calcExpenses(5000) == 17000);
+        assertTrue("amount mismatch",a.calcExpenses(6000) == 17000);
     }
 }
 

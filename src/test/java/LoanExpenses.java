@@ -10,7 +10,8 @@ public class LoanExpenses {
 
     public double calcExpenses(double loanAmount) {
         double totalExpenses = loanAmount + loanAmount*0.10*10 + loanAmount*0.08*10 + loanAmount*0.06*10;
-        System.out.println("Total Loan Expenses"  + totalExpenses);
+
+        System.out.println("Loan Amount: " + loanAmount + " | " + "Total Loan Expenses: "  + totalExpenses);
         return totalExpenses;
     }
 }
