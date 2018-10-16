@@ -21,7 +21,7 @@ public class JavaBasicsBeginning {
 
     private Integer sumAndPrint(Integer a, Integer b) {
         Integer c = a + b;
-        System.out.println(text + "for int: " + c);
+        System.out.println(text + "for int1: " + b);
         return c;
     }
 }
