@@ -2,6 +2,8 @@ import org.junit.jupiter.api.Test;
 public class LoanExpenses {
 
     @Test
+
+    // printExpenses created just for set data
     public void printExpenses() {
         calcExpenses(1000);
         calcExpenses(5000);
