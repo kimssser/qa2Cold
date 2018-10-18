@@ -7,7 +7,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class DelfiFirstTest {
     private final By ARTICLE_TITLE = By.xpath(".//a[@class = 'top2012-title']");
-    public String aaa = "hi";
+
 
     @Test
     public void delfiFirstTitleTest() {
@@ -29,6 +29,5 @@ public class DelfiFirstTest {
         String articleText = article.getText();
         //Checking
        // Assertions.assertEquals(articleToCheck, articleText, "Fatal  error!");
-        aaa = articleText;
     }
 }

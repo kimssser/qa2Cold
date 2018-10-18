@@ -31,7 +31,7 @@ public class MDelfiFirstTest {
         String articleText = article.getText();
         //Checking
        // Assertions.assertEquals(articleToCheck, articleText, "Fatal  error!");
-        mmm = articleText;
+
 
     }
 }
