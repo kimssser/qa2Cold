@@ -45,7 +45,7 @@ public class SecondHomeWorkJUnit {
         for (int i = 0; i < 5; i++) {
             deskArticlesList.add(articlesWeb.get(i).getText());
         }
-        System.out.println(deskArticlesList);
+        //System.out.println(deskArticlesList);
         return deskArticlesList;
     }
     @Test
@@ -66,35 +66,28 @@ public class SecondHomeWorkJUnit {
         for (int i = 0; i < 5; i++) {
             mobArticlesList.add(mobArticlesWeb.get(i).getText());
         }
-        System.out.println(mobArticlesList);
+        //System.out.println(mobArticlesList);
         return mobArticlesList;
     }
 
     @Test
     public void checkDesktopArticles () {
-        for (int i = 0; i < 5; i++) {
-            Assertions.assertEquals(checkDelfiTestDesktopBrowsers(), returnListTestArticles().get(i), "Title Nr. " + (i + 1) + " is not equal!");
-        }
+        Assertions.assertEquals(checkDelfiTestDesktopBrowsers(), returnListTestArticles(), "Desktop Articles / Test Articles not equal");
         System.out.println(deskArticlesList);
         System.out.println(givenArticlesList);
     }
 
     @Test
     public void checkMobileArticles () {
-        for (int i = 0; i < 5; i++) {
-            Assertions.assertEquals(checkDelfiTestMobileBrowsers(), returnListTestArticles().get(i), "Title Nr. " + (i + 1) + " is not equal!");
-        }
+        Assertions.assertEquals(checkDelfiTestMobileBrowsers(), returnListTestArticles(), "Mobile Articles / Test Articles not equal");
         System.out.println(mobArticlesList);
         System.out.println(givenArticlesList);
     }
     @Test
     //compare m.Delfi.lv articles with Delfi.lv articles
     public void compareArticles () {
-        for (int i = 0; i < 5; i++) {
-            Assertions.assertEquals(checkDelfiTestMobileBrowsers(), checkDelfiTestDesktopBrowsers(), "Title Nr. " + (i + 1) + " is not equal!");
-        }
+        Assertions.assertEquals(checkDelfiTestMobileBrowsers(), checkDelfiTestDesktopBrowsers(), "Mobile Articles / Desktop Articles not equal");
         System.out.println(deskArticlesList);
         System.out.println(mobArticlesList);
-
     }
 }
