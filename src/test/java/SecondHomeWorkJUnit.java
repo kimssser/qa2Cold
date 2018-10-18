@@ -14,15 +14,21 @@ public class SecondHomeWorkJUnit {
     private final List<String> mobArticlesList = new ArrayList<String>();
     private final List<String> deskArticlesList = new ArrayList<String>();
 
-
     @Test
-    public void checkDelfiTestDesktopBrowsers() {
-
+    public List<String> returnListTestArticles() {
         givenArticlesList.add("Esam spēruši platu soli, lai Latvijā varētu izveidot valdību, lepojas 'Attīstībai/Par!'");
         givenArticlesList.add("'OlyBet' basketbola līga: 'Ogre' - 'Jēkabpils/SMScredit.lv'. Video tiešraide");
         givenArticlesList.add("KP piedāvātais modelis vairs nav iespējams, norāda Dzintars");
         givenArticlesList.add("Slaktiņu Krimas koledžā sarīkojis tās audzēknis");
         givenArticlesList.add("Mūžībā devies mūziķis un LTV raidījuma vadītājs Valters Frīdenbergs");
+        return givenArticlesList;
+    }
+
+
+    @Test
+    public void checkDelfiTestDesktopBrowsers() {
+
+
         //Letting know the system where to find our driver
         System.setProperty("webdriver.gecko.driver", "c:/geckodriver.exe");
         //Creating a new copy of driver to work with - opening Web Browser
@@ -40,17 +46,12 @@ public class SecondHomeWorkJUnit {
         }
 
         for (int i = 0; i < 5; i++) {
-            Assertions.assertEquals(givenArticlesList.get(i), deskArticlesList.get(i), "Title Nr. " + (i + 1) + " is not correct!");
+            Assertions.assertEquals(returnListTestArticles().get(i), deskArticlesList.get(i), "Title Nr. " + (i + 1) + " is not correct!");
         }
 
     }
     @Test
     public void checkDelfiTestMobileBrowsers() {
-        givenArticlesList.add("Esam spēruši platu soli, lai Latvijā varētu izveidot valdību, lepojas 'Attīstībai/Par!'");
-        givenArticlesList.add("'OlyBet' basketbola līga: 'Ogre' - 'Jēkabpils/SMScredit.lv'. Video tiešraide");
-        givenArticlesList.add("KP piedāvātais modelis vairs nav iespējams, norāda Dzintars");
-        givenArticlesList.add("Slaktiņu Krimas koledžā sarīkojis tās audzēknis");
-        givenArticlesList.add("Mūžībā devies mūziķis un LTV raidījuma vadītājs Valters Frīdenbergs");
         //Letting know the system where to find our driver
         System.setProperty("webdriver.gecko.driver", "c:/geckodriver.exe");
         //Creating a new copy of driver to work with - opening Web Browser
@@ -68,7 +69,7 @@ public class SecondHomeWorkJUnit {
         }
         System.out.println(mobArticlesList);
         for (int i = 0; i < 5; i++) {
-            Assertions.assertEquals(givenArticlesList.get(i), mobArticlesList.get(i), "Title Nr. " + (i + 1) + " is not correct!");
+            Assertions.assertEquals(returnListTestArticles().get(i), mobArticlesList.get(i), "Title Nr. " + (i + 1) + " is not correct!");
         }
     }
 
@@ -77,7 +78,7 @@ public class SecondHomeWorkJUnit {
 
         //Parbaude
         for (int i = 0; i < 5; i++) {
-            Assertions.assertEquals(deskArticlesList, mobArticlesList, "Title Nr. " + (i + 1) + " is not equal!");
+            Assertions.assertEquals(deskArticlesList, returnListTestArticles().get(i), "Title Nr. " + (i + 1) + " is not equal!");
         }
         System.out.println(deskArticlesList);
         System.out.println(mobArticlesList);
@@ -89,7 +90,7 @@ public class SecondHomeWorkJUnit {
 
         //Parbaude
         for (int i = 0; i < 5; i++) {
-            Assertions.assertEquals(deskArticlesList, givenArticlesList, "Title Nr. " + (i + 1) + " is not equal!");
+            Assertions.assertEquals(deskArticlesList, returnListTestArticles().get(i), "Title Nr. " + (i + 1) + " is not equal!");
         }
         System.out.println(deskArticlesList);
         System.out.println(givenArticlesList);
