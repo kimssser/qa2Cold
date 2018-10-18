@@ -15,6 +15,7 @@ public class SecondHomeWorkJUnit {
     private final List<String> deskArticlesList = new ArrayList<String>();
 
     @Test
+    //prepare list with articles to be compared
     public List<String> returnListTestArticles() {
         givenArticlesList.add("Esam spēruši platu soli, lai Latvijā varētu izveidot valdību, lepojas 'Attīstībai/Par!'");
         givenArticlesList.add("'OlyBet' basketbola līga: 'Ogre' - 'Jēkabpils/SMScredit.lv'. Video tiešraide");
@@ -26,7 +27,8 @@ public class SecondHomeWorkJUnit {
 
 
     @Test
-    public void checkDelfiTestDesktopBrowsers() {
+    // Prepare list of Delfi.lv article and compare them with prepare test list articles
+    public List<String> checkDelfiTestDesktopBrowsers() {
 
 
         //Letting know the system where to find our driver
@@ -42,16 +44,13 @@ public class SecondHomeWorkJUnit {
         //Parbaude
         for (int i = 0; i < 5; i++) {
             deskArticlesList.add(articlesWeb.get(i).getText());
-            System.out.println(deskArticlesList);
         }
-
-        for (int i = 0; i < 5; i++) {
-            Assertions.assertEquals(returnListTestArticles().get(i), deskArticlesList.get(i), "Title Nr. " + (i + 1) + " is not correct!");
-        }
-
+        System.out.println(deskArticlesList);
+        return deskArticlesList;
     }
     @Test
-    public void checkDelfiTestMobileBrowsers() {
+    // Prepare list of m.Delfi.lv article and compare them with prepare test list articles
+    public List<String> checkDelfiTestMobileBrowsers() {
         //Letting know the system where to find our driver
         System.setProperty("webdriver.gecko.driver", "c:/geckodriver.exe");
         //Creating a new copy of driver to work with - opening Web Browser
@@ -62,37 +61,40 @@ public class SecondHomeWorkJUnit {
         driver.get("http://m.delfi.lv");
         //Find 5 elements
         List<WebElement> mobArticlesWeb = driver.findElements(M_ARTICLE_TITLE);
-        //Parbaude
+
 
         for (int i = 0; i < 5; i++) {
             mobArticlesList.add(mobArticlesWeb.get(i).getText());
         }
         System.out.println(mobArticlesList);
-        for (int i = 0; i < 5; i++) {
-            Assertions.assertEquals(returnListTestArticles().get(i), mobArticlesList.get(i), "Title Nr. " + (i + 1) + " is not correct!");
-        }
-    }
-
-    @Test
-    public void compareArticles () {
-
-        //Parbaude
-        for (int i = 0; i < 5; i++) {
-            Assertions.assertEquals(deskArticlesList, returnListTestArticles().get(i), "Title Nr. " + (i + 1) + " is not equal!");
-        }
-        System.out.println(deskArticlesList);
-        System.out.println(mobArticlesList);
-
+        return mobArticlesList;
     }
 
     @Test
     public void checkDesktopArticles () {
-
-        //Parbaude
         for (int i = 0; i < 5; i++) {
-            Assertions.assertEquals(deskArticlesList, returnListTestArticles().get(i), "Title Nr. " + (i + 1) + " is not equal!");
+            Assertions.assertEquals(checkDelfiTestDesktopBrowsers(), returnListTestArticles().get(i), "Title Nr. " + (i + 1) + " is not equal!");
         }
         System.out.println(deskArticlesList);
         System.out.println(givenArticlesList);
+    }
+
+    @Test
+    public void checkMobileArticles () {
+        for (int i = 0; i < 5; i++) {
+            Assertions.assertEquals(checkDelfiTestMobileBrowsers(), returnListTestArticles().get(i), "Title Nr. " + (i + 1) + " is not equal!");
+        }
+        System.out.println(mobArticlesList);
+        System.out.println(givenArticlesList);
+    }
+    @Test
+    //compare m.Delfi.lv articles with Delfi.lv articles
+    public void compareArticles () {
+        for (int i = 0; i < 5; i++) {
+            Assertions.assertEquals(checkDelfiTestMobileBrowsers(), checkDelfiTestDesktopBrowsers(), "Title Nr. " + (i + 1) + " is not equal!");
+        }
+        System.out.println(deskArticlesList);
+        System.out.println(mobArticlesList);
+
     }
 }

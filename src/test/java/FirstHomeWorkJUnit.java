@@ -11,6 +11,7 @@ public class FirstHomeWorkJUnit {
         calcExpenses(5000);
         calcExpenses(7000);
     }
+    // calculate total amount to be returned
     public double calcExpenses(double loanAmount) {
         double totalExpenses = loanAmount + loanAmount*0.10*10 + loanAmount*0.08*10 + loanAmount*0.06*10;
         System.out.println("Loan Amount: " + loanAmount + " | " + "Total Loan Expenses: "  + totalExpenses);
