@@ -5,12 +5,7 @@ import org.junit.jupiter.api.Assertions;
 public class FirstHomeWorkJUnit {
 
     @Test
-    //setting data to get the correct amounts
-    public void printExpenses() {
-        calcExpenses(1000);
-        calcExpenses(5000);
-        calcExpenses(7000);
-    }
+
     // calculate total amount to be returned
     public double calcExpenses(double loanAmount) {
         double totalExpenses = loanAmount + loanAmount*0.10*10 + loanAmount*0.08*10 + loanAmount*0.06*10;
@@ -23,7 +18,7 @@ public class FirstHomeWorkJUnit {
         double initLoanAmount = 6000;  //specify loan amount
         double totalAmountToReturn = 20400; //specify total amount to be returned
         FirstHomeWorkJUnit a = new FirstHomeWorkJUnit();
-        Assertions.assertTrue(a.calcExpenses(initLoanAmount) == totalAmountToReturn, "amount mismatch");
+        Assertions.assertEquals(a.calcExpenses(initLoanAmount), totalAmountToReturn, "amount mismatch");
     }
 }
 
