@@ -40,14 +40,14 @@ public class SecondHomeWorkJUnit {
         }
 
         if (mobArticlesList != givenArticlesList) {
-            System.out.println("mob articles not equal with test articles");
+            System.out.println("Mobile articles not equal with Test articles");
         } else {
-            System.out.println("mob articles are equal with test articles");
+            System.out.println("Mobile articles are equal with Test articles");
         }
         if (deskArticlesList != givenArticlesList) {
-            System.out.println("Desktop articles not equal with test articles");
+            System.out.println("Desktop articles not equal with Test articles");
         } else {
-            System.out.println("Desktop articles are equal with test articles");
+            System.out.println("Desktop articles are equal with Test articles");
         }
         Assertions.assertEquals(mobArticlesList, deskArticlesList, "Desktop Articles / Mobile Articles not equal");
 
