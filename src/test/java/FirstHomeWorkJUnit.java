@@ -13,7 +13,7 @@ public class FirstHomeWorkJUnit {
     @Test
     public void compareAmounts(){
         double initLoanAmount = 6000;
-        double totalAmountToReturn = 204020;
+        double totalAmountToReturn = 20400;
         Assertions.assertEquals(calcExpenses(initLoanAmount), totalAmountToReturn, "amount mismatch");
     }
 }
