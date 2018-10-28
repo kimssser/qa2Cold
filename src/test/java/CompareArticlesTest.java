@@ -28,6 +28,7 @@ public class CompareArticlesTest {
         driver.get("http://delfi.lv");
         List<WebElement> articlesWeb = driver.findElements(ARTICLE_TITLE);
         List<String> deskArticlesList = new ArrayList<String>();
+
         for (int i = 0; i < 5; i++) {
             deskArticlesList.add(articlesWeb.get(i).getText());
         }
@@ -35,6 +36,7 @@ public class CompareArticlesTest {
         driver.get("http://m.delfi.lv");
         List<WebElement> mobArticlesWeb = driver.findElements(M_ARTICLE_TITLE);
         List<String> mobArticlesList = new ArrayList<String>();
+
         for (int i = 0; i < 5; i++) {
             mobArticlesList.add(mobArticlesWeb.get(i).getText());
         }
