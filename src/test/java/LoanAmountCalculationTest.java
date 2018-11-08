@@ -5,7 +5,6 @@ public class LoanAmountCalculationTest {
 
     private double initLoanAmount = 1000.8;
     private double totalAmountToReturn = 3500.7;
-    private int periodWithConstRate = 10;
 
     @Test
     public void calcAndCompareLoanAmount() {
@@ -15,9 +14,9 @@ public class LoanAmountCalculationTest {
         double thirdTenYearsOverpay;
         double calculatedReturnAmount;
 
-        firstTenYearsOverpay = initLoanAmount * periodWithConstRate * 0.10;
-        secondTenYearsOverpay = initLoanAmount * periodWithConstRate * 0.08;
-        thirdTenYearsOverpay = initLoanAmount * periodWithConstRate * 0.06;
+        firstTenYearsOverpay = initLoanAmount * 10 * 0.10;
+        secondTenYearsOverpay = initLoanAmount * 10 * 0.08;
+        thirdTenYearsOverpay = initLoanAmount * 10 * 0.06;
 
         calculatedReturnAmount = initLoanAmount + firstTenYearsOverpay + secondTenYearsOverpay + thirdTenYearsOverpay;
 
