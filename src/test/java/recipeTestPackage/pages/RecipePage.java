@@ -17,6 +17,8 @@ public class RecipePage {
 
     private final By INGREDIENTS = By.xpath(".//a[@itemprop = 'recipeIngredient']");
     private final By INGR_RECIPES = By.xpath(".//h1[@class =  'headline-title text-md']");
+    private final String recipe_name = "Pufīgās sodas pankūciņas";
+
     public RecipePage(BaseFunc baseFunc) {
         this.baseFunc = baseFunc;
     }
@@ -35,11 +37,24 @@ public class RecipePage {
             baseFunc.driver.navigate().back();
             x = true;
             ingredients = new ArrayList<WebElement>();
-         //   if (RecipePage(INGR_RECIPES).size() == 0) { here should be function to check whether recipe exists in ingredients
+            if (checkArticleInIngred(recipe_name) == true) {
                 recipeNotFoundCount = 1;
-        //    }
+            }
         }
-     return recipeNotFoundCount;
+        return recipeNotFoundCount;
+
+    }
+
+    public boolean checkArticleInIngred(String name) {
+        List<WebElement> tabs = baseFunc.getElements(INGR_RECIPES);
+        boolean recipeFound = false;
+        for (int i = 0; i < tabs.size(); i++) {
+            String title = tabs.get(i).getText();
+            if (title.equals(name)) {
+                recipeFound = true;
+            }
+        }
+        return recipeFound;
     }
 }
 
