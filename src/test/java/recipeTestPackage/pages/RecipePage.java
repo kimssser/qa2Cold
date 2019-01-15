@@ -17,14 +17,14 @@ public class RecipePage {
 
     private final By INGREDIENTS = By.xpath(".//a[@itemprop = 'recipeIngredient']");
     private final By INGR_RECIPES = By.xpath(".//h1[@class =  'headline-title text-md']");
-    private final String recipe_name = "Pufīgās sodas pankūciņas";
+
 
     public RecipePage(BaseFunc baseFunc) {
         this.baseFunc = baseFunc;
     }
 
 
-    public int recipeIngredients() {
+    public int recipeIngredients(String name) {
         List<WebElement> ingredients = baseFunc.getElements(INGREDIENTS);
         boolean x = false;
         int ingrSize = ingredients.size();
@@ -37,7 +37,7 @@ public class RecipePage {
             baseFunc.driver.navigate().back();
             x = true;
             ingredients = new ArrayList<WebElement>();
-            if (checkArticleInIngred(recipe_name) == true) {
+            if (checkArticleInIngred(name) == true) {
                 recipeNotFoundCount = 1;
             }
         }
@@ -52,6 +52,7 @@ public class RecipePage {
             String title = tabs.get(i).getText();
             if (title.equals(name)) {
                 recipeFound = true;
+                break;
             }
         }
         return recipeFound;

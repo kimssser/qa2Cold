@@ -16,11 +16,17 @@ public class TastyPage {
         this.baseFunc = baseFunc;
     }
 
-    public RecipePage getRecipe(String name) {
+    public String getfirstRecipeName() {
+        List<WebElement> recipes = baseFunc.getElements(RECIPES);
+        String recipeName = recipes.get(1).getText();
+        return recipeName;
+    }
+
+    public RecipePage getRecipe() {
         List<WebElement> recipes = baseFunc.getElements(RECIPES);
         for (int i = 0; i < recipes.size(); i++) {
             String title = recipes.get(i).getText();
-            if (title.equals(name)) {
+            if (getfirstRecipeName().equals(title)) {
                 recipes.get(i).click();
                 return new RecipePage(baseFunc);
             }
