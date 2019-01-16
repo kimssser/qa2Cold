@@ -23,8 +23,9 @@ public class RecipePage {
         this.baseFunc = baseFunc;
     }
 
-
     public int recipeIngredients(String name) {
+        ArrayList<String> tabss = new ArrayList<String>(baseFunc.driver.getWindowHandles());
+        baseFunc.driver.switchTo().window(tabss.get(1));
         List<WebElement> ingredients = baseFunc.getElements(INGREDIENTS);
         boolean x = false;
         int ingrSize = ingredients.size();
