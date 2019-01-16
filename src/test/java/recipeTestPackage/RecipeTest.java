@@ -22,7 +22,8 @@ public class RecipeTest {
         homePage.acceptCookies();
         TastyPage tastyPage = homePage.getItemByName("TASTY");
         RecipePage recipePage = tastyPage.getRecipe();
-        //Integer recipeNotFoundCount = recipePage.recipeIngredients(tastyPage.getfirstRecipeName());
-       // Assertions.assertTrue(recipeNotFoundCount == 0, "Not all the ingredients exist in recipes on ingridient page");
+
+        Integer recipeNotFoundCount = recipePage.recipeIngredients(tastyPage.getfirstRecipeName());
+        Assertions.assertTrue(recipeNotFoundCount == 0, "Not all the ingredients exist in recipes on ingridient page");
     }
 }
