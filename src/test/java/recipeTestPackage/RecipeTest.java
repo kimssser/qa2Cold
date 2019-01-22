@@ -1,6 +1,5 @@
-//on Delfi food page open selected recipe
+//on Delfi tasty page open selected (second one) recipe
 // go through all ingridients and check if this recipe exists on the ingridients page
-
 
 package recipeTestPackage;
 
@@ -22,7 +21,6 @@ public class RecipeTest {
         homePage.acceptCookies();
         TastyPage tastyPage = homePage.getItemByName("TASTY");
         RecipePage recipePage = tastyPage.getRecipe();
-
         Integer recipeNotFoundCount = recipePage.recipeIngredients(tastyPage.getfirstRecipeName());
         Assertions.assertTrue(recipeNotFoundCount == 0, "Not all the ingredients exist in recipes on ingridient page");
     }

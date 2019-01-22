@@ -1,18 +1,16 @@
 package recipeTestPackage.pages;
 
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-
 import java.util.List;
 
 public class TastyPage {
+
     BaseFunc baseFunc;
 
     private final By RECIPES = By.xpath(".//h1[contains(@class, 'headline-title')]");
 
     public TastyPage(BaseFunc baseFunc) {
-
         this.baseFunc = baseFunc;
     }
 
@@ -33,5 +31,4 @@ public class TastyPage {
         }
         return null;
     }
-
 }

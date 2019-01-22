@@ -1,15 +1,17 @@
 package recipeTestPackage.pages;
 
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.junit.jupiter.api.Assertions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
 public class BaseFunc {
+
     WebDriver driver;
 
     public BaseFunc() {
@@ -36,4 +38,8 @@ public class BaseFunc {
         return driver.findElement(locator);
     }
 
+    public void waitForElement(By locator) {
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
 }

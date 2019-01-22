@@ -2,7 +2,6 @@ package recipeTestPackage.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-
 import java.util.List;
 
 public class HomePage {
@@ -18,13 +17,11 @@ public class HomePage {
     }
 
     public void acceptCookies() {
-
+        baseFunc.waitForElement(COOKIES);
         baseFunc.getElement(COOKIES).click();
     }
 
-
     public TastyPage getItemByName(String name) {
-
 
         List<WebElement> tabs = baseFunc.getElements(TASTY_TAB);
         for (int i = 0; i < tabs.size(); i++) {
